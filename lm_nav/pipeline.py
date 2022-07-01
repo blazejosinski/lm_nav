@@ -1,7 +1,7 @@
 import numpy as np
 
-import optimal_route
-import landmark_extraction
+from lm_nav import optimal_route
+from lm_nav import landmark_extraction
 
 
 def full_pipeline(graph, start_node, landmarks = None, instructions = None, alpha=0.0002, debug=True):

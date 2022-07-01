@@ -9,8 +9,8 @@ import clip  # type: ignore
 import PIL  # type: ignore
 
 
-from graph_nav.navigation_graph import NavigationGraph
-from utils import rectify_and_crop
+from lm_nav.navigation_graph import NavigationGraph
+from lm_nav.utils import rectify_and_crop
 
 
 def dijskra_transform(

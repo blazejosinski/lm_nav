@@ -4,7 +4,7 @@ import os
 import io
 import utm
 import cv2
-import PIL
+import PIL.Image
 
 def get_hdf5_leaf_names(node, name=''):
     if isinstance(node, str):

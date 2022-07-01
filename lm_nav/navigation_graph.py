@@ -1,10 +1,12 @@
+import pickle
+from tkinter import W
 from PIL import Image  # type: ignore
 import numpy as np
 import networkx as nx  # type: ignore
 import matplotlib.pyplot as plt  # type: ignore
 import base64
 from io import BytesIO
-from utils import latlong_to_utm
+from lm_nav.utils import latlong_to_utm
 
 import logging
 
@@ -15,14 +17,24 @@ logger = logging.getLogger(__name__)
 class NavigationGraph(object):
     EPS = 3e-5
 
-    def __init__(self, edge_len=20):
-        self._default_edge_len = edge_len
-        self._nodes = []
-        self._pos = []
-        self._images = []
-        self.vert_count = 0
-        self._graph = nx.Graph()
-        logger.debug("Creating undirected graph!")
+    def __init__(self, path=None):
+        if path is None:
+            self._pos = []
+            self._images = []
+            self._graph = nx.Graph()
+        else:
+            self.load_from_file(path)
+
+    @property
+    def vert_count(self):
+        return self._graph.number_of_nodes()
+
+    def load_from_file(self, path):
+        with open(path, "rb") as f:
+            data = pickle.load(f)
+        self._pos = data["pos"]
+        self._images = data["images"]
+        self._graph = nx.readwrite.json_graph.node_link_graph(data["json_graph"])
 
     def add_edge(self, node, adj_node, weight=None):
         if weight is None:
@@ -38,8 +50,6 @@ class NavigationGraph(object):
             pos = obs[b"gps/utm"]
         else:
             pos = latlong_to_utm(obs[b"gps/latlong"])
-        self.vert_count += 1
-        self._nodes.append(obs)
         self._graph.add_node(inx)
         self._pos.append(pos)
         self._images.append([obs[b"images/rgb_left"]])
@@ -68,7 +78,7 @@ class NavigationGraph(object):
         positions = positions / max_pos * image_size * 0.9
         positions += 0.05 * image_size
         verticies = {}
-        for inx, node in enumerate(self._nodes):
+        for inx in range(self.vert_count):
             images_str = []
             for image in self._images[inx]:
                 # buffered = BytesIO()
