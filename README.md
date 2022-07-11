@@ -4,7 +4,7 @@
 
 ## Introduction
 
-This repository contains code used in *LM-Nav: Robotic Navigation with Large Pre-Trained Models of Language, Vision, and Action* by Dhruv Shah, Błażej Osiński, Brian Ichterγ, and Sergey Levine.
+This repository contains code used in *LM-Nav: Robotic Navigation with Large Pre-Trained Models of Language, Vision, and Action* by Dhruv Shah, Błażej Osiński, Brian Ichter, and Sergey Levine.
 
 In order to dive into the code, we suggest starting from the following:
 
