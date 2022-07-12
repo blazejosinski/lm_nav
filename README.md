@@ -29,3 +29,18 @@ For the LM-Nav pipeline notebooks, we added a cached version of the OpenAI API c
 ``OPENAI_API_KEY=sk-[]  jupyter notebook``
 
 Likewise, in order to re-run the ablation experiments with the open-source models you need to specify [GooseAI API key](https://goose.ai/).
+
+## Citation
+
+If you find this work useful, please consider citing:
+
+```
+@misc{shah2022lmnav,
+      title={LM-Nav: Robotic Navigation with Large Pre-Trained Models of Language, Vision, and Action}, 
+      author={Dhruv Shah and Blazej Osinski and Brian Ichter and Sergey Levine},
+      year={2022},
+      eprint={2207.04429},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO}
+}
+```
