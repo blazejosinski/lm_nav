@@ -2,6 +2,8 @@
 
 <a href="http://colab.research.google.com/github/blazejosinski/lm_nav/blob/main/colab_experiment.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" height=22.5></a> 
 
+THIS SOFTWARE AND/OR DATA WAS DEPOSITED IN THE BAIR OPEN RESEARCH COMMONS REPOSITORY ON JULY 11, 2022.
+
 ## Introduction
 
 This repository contains code used in *LM-Nav: Robotic Navigation with Large Pre-Trained Models of Language, Vision, and Action* by Dhruv Shah, Błażej Osiński, Brian Ichter, and Sergey Levine.
@@ -12,7 +14,7 @@ In order to dive into the code, we suggest starting from the following:
 * `colab_experiment.ipynb` - colab version of the above notebook. You can easily [run it in your browser](http://colab.research.google.com/github/blazejosinski/lm_nav/blob/main/colab_experiment.ipynb)!
 * `ablation_text_to_landmark.ipynb` - notebook with ablation experiments for the language processing part: comparing GPT3 to open-source alternatives and a simple NLP baseline.
 
-## Instalation
+## Installation
 
 The code was tested with python 3.7.13. It assumes access to GPU and CUDA 10.2 is installed.
 
